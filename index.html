@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a3f95">
+<title>Smart Check PDI – Pre-Delivery Inspection Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:ital,wght@0,600;0,700;0,800;1,800;1,900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ======================= TOP BAR (steps 2+) ======================= -->
+<header class="topbar" id="topbar" hidden>
+  <div class="topbar-in">
+    <span class="logo" data-logo></span>
+    <div class="tb-title">SMART <span>CHECK PDI</span></div>
+    <div class="tb-step" id="tbStep"></div>
+  </div>
+  <div class="progress"><i id="progressBar"></i></div>
+</header>
+ 
+<main class="wrap">
+ 
+  <!-- ======================= HERO HEADER (step 1 only) ======================= -->
+  <section id="hero" hidden>
+    <div class="hero">
+      <div class="brand">
+        <span class="logo" data-logo></span>
+        <div class="wordmark">
+          <span class="w1">SMART</span>
+          <span class="w2">CHECK PDI</span>
+          <span class="sub">INSPECT &nbsp;|&nbsp; VERIFY &nbsp;|&nbsp; DRIVE WITH CONFIDENCE</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="script">Your Car<br><b>Our Inspection</b></div>
+        <div class="loc">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s-7-6.500-7-12.500a7 7 0 0 1 14 0C19 15.500 12 22 12 22z"/><circle cx="12" cy="9.500" r="2.600" fill="#fff"/></svg>
+          Bhubaneswar &amp; All Odisha
+        </div>
+      </div>
+    </div>
+    <div class="banner">
+      <h1>Pre-Delivery Inspection (PDI) Checklist</h1>
+      <p>A small check today,<br>a worry-free tomorrow.</p>
+    </div>
+  </section>
+ 
+  <!-- ======================= DYNAMIC SCREEN ======================= -->
+  <div id="screen"></div>
+ 
+  <!-- ======================= FOOTER BAND ======================= -->
+  <footer class="foot" aria-label="Smart Check PDI services">
+    <div>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg>
+      <span>Professional Inspection Service</span>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.500-7-12a7 7 0 0 1 14 0c0 5.500-7 12-7 12z"/><circle cx="12" cy="9" r="2.500"/></svg>
+      <span>Bhubaneswar &amp; All Odisha</span>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.500l2.800 2.800L16.500 9"/></svg>
+      <span>Complete Inspection Points</span>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.300-4.200A8 8 0 1 1 8.400 18.800z"/></svg>
+      <span>Book Your PDI Today<small>Drive Safe · Buy Smart</small></span>
+    </div>
+  </footer>
+</main>
+ 
+<!-- ======================= BOTTOM NAV ======================= -->
+<nav class="nav" id="nav" aria-label="Step navigation">
+  <div class="nav-in">
+    <button type="button" class="btn btn-ghost" id="btnPrev" data-action="prev">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Previous
+    </button>
+    <button type="button" class="btn btn-ghost btn-clear" id="btnClear" data-action="clearticks">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.700L3 8"/><path d="M3 3v5h5"/></svg>Clear Tick Marks
+    </button>
+    <button type="button" class="btn btn-primary" id="btnNext" data-action="next">
+      <span id="btnNextLabel">Next</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</nav>
+ 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+ 
+<div class="save-pill" id="savePill" role="status" aria-live="polite" data-kind="saved">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.500l4.500 4.500L19 7.500"/></svg>
+  <span class="save-t">Progress auto-saved</span>
+</div>
+ 
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-box">
+    <div class="modal-ic" id="mIcon" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/></svg></div>
+    <h3 id="mTitle"></h3>
+    <p id="mText"></p>
+    <p class="modal-extra" id="mExtra" hidden></p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" id="mCancel">Cancel</button>
+      <button type="button" class="btn btn-primary" id="mOk">Confirm</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- Dedicated container used only for building the PDF report -->
+<div id="pdf-container" aria-hidden="true"><div id="pdf-report"></div></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
