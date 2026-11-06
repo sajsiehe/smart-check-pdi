@@ -292,7 +292,7 @@
           field('Chassis Number (VIN)', 'vin', { cls: 'upper', ph: '17-character VIN' }) +
           field('Engine Number', 'engineNo', { cls: 'upper' }) +
           field('Odometer Reading', 'odo', { mode: 'decimal', ph: 'in km' }) +
-          field('Manufacturing Date', 'mfgDate', { type: 'date' }) +
+          field('Manufacturing Date', 'mfgDate', { ph: 'e.g. 18 July 2004' }) +
           field('Registration No.', 'regNo', { cls: 'upper', ph: 'e.g. OD 02 AB 1234' }) +
           field('Colour', 'colour') +
           '<div class="field"><span class="lbl">Inspection Type</span><div class="pills" role="radiogroup" aria-label="Inspection type">' +
