@@ -742,7 +742,7 @@
         kv('Inspection Date', fmtDate(d.inspDate) || '—') + '</div>' +
       '<div class="rp-box"><h3>Inspection Details</h3>' +
         kv('Chassis No. (VIN)', up(d.vin)) + kv('Engine Number', up(d.engineNo)) + kv('Odometer Reading', odo) +
-        kv('Manufacturing Date', fmtDate(d.mfgDate) || '—') + kv('Registration No.', up(d.regNo)) + kv('Colour', val(d.colour)) +
+        kv('Manufacturing Date', fmtDate(d.mfgDate) || val(d.mfgDate)) + kv('Registration No.', up(d.regNo)) + kv('Colour', val(d.colour)) +
         kv('Inspection Type', d.inspType === 'Used' ? 'Used (Pre-Owned)' : d.inspType === 'New' ? 'New' : '—') + '</div></div>' });
  
     // 3. Result badges (one per selected option) + stats
